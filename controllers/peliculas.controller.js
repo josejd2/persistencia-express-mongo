@@ -8,6 +8,20 @@ export const listarPeliculas = async (req, res) => {
     res.json(peliculas);
 };
 
+export const buscarPeliculaPorTitulo = async (req, res) => {
+    const {titulo} = req.query;
+
+    const pelicula = await peliculasCollection().find({
+        titulo: { $regex: titulo, $options: 'i' }  
+    }).toArray();
+
+    if (!pelicula) {
+        return res.status(404).json({ error: "Película no encontrada" });
+    }
+
+    res.json(pelicula);
+};
+
 export const obtenerPeliculaPorId = async (req, res) => {
     const { id } = req.params;
     if (!ObjectId.isValid(id)) {

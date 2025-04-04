@@ -66,3 +66,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlN
 
 ### Obtener peliculas por ID
 GET http://localhost:3000/peliculas/67e18c7bbbb2f3b54507fb67
+### Obtener peliculas por Titulo
+GET http://localhost:3000/peliculas/search?titulo=Matrix

@@ -64,4 +64,5 @@ Content-Type: application/json
 DELETE http://localhost:3000/peliculas/67ee4d6a3400fe1f890f0c7d
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2VlNDIwZmRkNzNlNGQwZWE1NWUwYzciLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc0MzY4MDA4MSwiZXhwIjoxNzQzNjgzNjgxfQ.XP7tI4teefGPfofs6V-8WwxLtxHogVE3mXFQ65t-_YE
 
-
+### Obtener peliculas por ID
+GET http://localhost:3000/peliculas/67e18c7bbbb2f3b54507fb67

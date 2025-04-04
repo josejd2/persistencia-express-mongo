@@ -1,10 +1,26 @@
 import { db } from "../config/database.js";
+import { ObjectId } from "mongodb";
 
 const peliculasCollection = () => db.collection("peliculas");
 
 export const listarPeliculas = async (req, res) => {
     const peliculas = await peliculasCollection().find().toArray();
     res.json(peliculas);
+};
+
+export const obtenerPeliculaPorId = async (req, res) => {
+    const { id } = req.params;
+    if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ error: "ID inválido" });
+    }
+    
+    const pelicula = await peliculasCollection().findOne({ _id: new ObjectId(id) });
+    
+    if (!pelicula) {
+        return res.status(404).json({ error: "Película no encontrada" });
+    }
+    
+    res.json(pelicula);
 };
 
 export const agregarPelicula = async (req, res) => {
